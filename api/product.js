@@ -1,48 +1,33 @@
 // api/product.js
-export default async function handler(req, res) {
-  const { url } = req.query;
-
-  if (!url) {
-    return res.status(400).json({ error: "Parameter ?url= diperlukan" });
-  }
-
+export default function handler(req, res) {
   try {
-    // Ambil halaman produk
-    const response = await fetch(url);
-    const html = await response.text();
+    const { url } = req.query;
 
-    // --- Scraping sederhana ---
-    // Judul produk
-    const titleMatch = html.match(/<title.*?>(.*?)<\/title>/i);
-    const title = titleMatch ? titleMatch[1].replace(/ - TikTok.*/, "").trim() : "Produk TikTok";
+    if (!url) {
+      res.status(400).json({ 
+        status: "error",
+        message: "Missing 'url' query parameter"
+      });
+      return;
+    }
 
-    // Gambar utama
-    const imageMatch = html.match(/property="og:image"\s*content="(.*?)"/i);
-    const image = imageMatch ? imageMatch[1] : null;
+    const productData = {
+      id: 1,
+      name: "Produk Contoh",
+      price: 100000,
+      url: url,
+      description: "Ini adalah contoh data produk dari API"
+    };
 
-    // Harga
-    const priceMatch = html.match(/"price":"([\d\.]+)"/i);
-    const price = priceMatch ? priceMatch[1] : null;
-
-    // Rating
-    const ratingMatch = html.match(/"average_rating":([\d\.]+)/i);
-    const rating = ratingMatch ? ratingMatch[1] : null;
-
-    // Terjual
-    const soldMatch = html.match(/"sold_count":(\d+)/i);
-    const sold = soldMatch ? soldMatch[1] : null;
-
-    // Kirim hasil
     res.status(200).json({
-      url,
-      title,
-      image,
-      price,
-      rating,
-      sold
+      status: "success",
+      data: productData
     });
 
-  } catch (err) {
-    res.status(500).json({ error: "Gagal mengambil data", details: err.message });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: error.message
+    });
   }
 }
