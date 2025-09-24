@@ -1,0 +1,11 @@
+{
+  "name": "etalase-tiktokshop",
+  "version": "1.0.0",
+  "description": "Etalase produk Premio dengan HTML statis",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Buka index.html di browser'"
+  },
+  "author": "kamu",
+  "license": "MIT"
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etalase Produk Premio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin:0;
+      background:#f5f5f5;
+      padding-bottom:100px; /* biar konten tidak ketutup footer */
+    }
+    header {
+      background:#4CAF50;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+    .container {
+      max-width:1100px;
+      margin:20px auto;
+      padding:0 15px;
+    }
+    h2 {margin:20px 0 10px; color:#333;}
+
+    /* Tabs */
+    .tabs {
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
+    }
+    .tab-btn {
+      flex:1;
+      padding:12px;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      font-weight:bold;
+      background:#ddd;
+      transition:0.3s;
+    }
+    .tab-btn.active {background:#4CAF50; color:white;}
+    .tab-content {display:none;}
+    .tab-content.active {display:block;}
+
+    /* Etalase - vertikal */
+    .etalase-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .etalase-item {
+      background:white;
+      border-radius:10px;
+      padding:15px;
+      display:flex;
+      align-items:center;
+      gap:15px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.1);
+      transition:0.3s;
+      cursor:pointer;
+    }
+    .etalase-item:hover {transform:scale(1.02);}
+    .etalase-item img {width:50px; height:50px;}
+    .etalase-item span {font-weight:bold; color:#333;}
+
+    /* Produk */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 8px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+    .product-card:hover {transform:scale(1.02);}
+    .product-img {width:100%; height:200px; object-fit:cover;}
+    .product-content {padding:15px;}
+    .product-content h3 {margin:0 0 5px; font-size:16px;}
+    .price {color:#E91E63; font-weight:bold; margin-bottom:5px;}
+    .rating {font-size:14px; color:#888; margin-bottom:10px;}
+    .btn {
+      display:inline-block; padding:10px 14px; 
+      background:#4CAF50; color:white; 
+      border-radius:6px; text-decoration:none; 
+      font-size:14px; font-weight:bold;
+    }
+    .btn:hover {background:#45a049;}
+
+    /* Footer sticky */
+    footer {
+      position: fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:#333;
+      color:white;
+      text-align:center;
+      padding:15px;
+    }
+    .social-links a {
+      color:#4CAF50;
+      text-decoration:none;
+      margin:0 5px;
+      font-weight:bold;
+    }
+    .social-links a:hover {text-decoration:underline;}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏪 Etalase Produk Premio</h1>
+  <p>Pilih kategori favoritmu & temukan produk terbaik!</p>
+</header>
+
+<div class="container">
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('produk')">Produk</button>
+    <button class="tab-btn" onclick="showTab('etalase')">Etalase</button>
+  </div>
+
+  <!-- Tab Produk -->
+  <div id="produk" class="tab-content active">
+    <h2 id="bakeware">🍰 Premio Bakeware</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Produk+1" alt="Produk 1" class="product-img">
+        <div class="product-content">
+          <h3>PREMIO Alat Cukur Elektrik Portable</h3>
+          <p class="price">Rp99.500</p>
+          <p class="rating">⭐ 4.9 | 250+ terjual</p>
+          <a href="https://tokopedia.link/produk1" class="btn">Beli Sekarang</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Produk+2" alt="Produk 2" class="product-img">
+        <div class="product-content">
+          <h3>PREMIO Alat Cukur Elektrik Wireless</h3>
+          <p class="price">Rp123.000</p>
+          <p class="rating">⭐ 5.0 | 5 terjual</p>
+          <a href="https://tokopedia.link/produk2" class="btn">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="kitchenware">🍳 Premio Kitchenware</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Produk+3" alt="Produk 3" class="product-img">
+        <div class="product-content">
+          <h3>PREMIO Mini Chopper Blender Portable</h3>
+          <p class="price">Rp129.500</p>
+          <p class="rating">⭐ 5.0 | 120+ terjual</p>
+          <a href="https://tokopedia.link/produk3" class="btn">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="living">🏠 Premio Living</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200?text=Produk+4" alt="Produk 4" class="product-img">
+        <div class="product-content">
+          <h3>PREMIO Set Alat Makan Estetik</h3>
+          <p class="price">Rp89.000</p>
+          <p class="rating">⭐ 4.8 | 75+ terjual</p>
+          <a href="https://tokopedia.link/produk4" class="btn">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Etalase -->
+  <div id="etalase" class="tab-content">
+    <h2>Etalase</h2>
+    <div class="etalase-list">
+      <div class="etalase-item" onclick="goToKategori('bakeware')">
+        <img src="https://via.placeholder.com/60" alt="Bakeware">
+        <span>PREMIO BAKEWARE</span>
+      </div>
+      <div class="etalase-item" onclick="goToKategori('kitchenware')">
+        <img src="https://via.placeholder.com/60" alt="Kitchenware">
+        <span>PREMIO KITCHENWARE</span>
+      </div>
+      <div class="etalase-item" onclick="goToKategori('living')">
+        <img src="https://via.placeholder.com/60" alt="Living">
+        <span>PREMIO LIVING</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Ikuti aku di platform lain:</p>
+  <div class="social-links">
+    <a href="https://tiktok.com/@username">TikTok</a> |
+    <a href="https://instagram.com/username">Instagram</a> |
+    <a href="https://youtube.com/@username">YouTube</a>
+  </div>
+  <p style="margin-top:10px; font-size:13px;">© 2025 Affiliate by Kamu</p>
+</footer>
+
+<script>
+function showTab(tabId) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+  document.querySelector(`.tab-btn[onclick="showTab('${tabId}')"]`).classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+function goToKategori(id) {
+  showTab('produk');
+  setTimeout(() => {
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }, 100);
+}
+</script>
+
+</body>
+</html>
