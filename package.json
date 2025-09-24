@@ -1,11 +1,13 @@
 {
   "name": "etalase-tiktokshop",
   "version": "1.0.0",
-  "description": "Etalase produk Premio dengan HTML statis",
   "main": "index.html",
   "scripts": {
-    "start": "echo 'Buka index.html di browser'"
+    "start": "vercel dev",
+    "deploy": "vercel --prod"
   },
-  "author": "kamu",
-  "license": "MIT"
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
 }
